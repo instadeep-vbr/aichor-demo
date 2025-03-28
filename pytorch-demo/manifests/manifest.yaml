@@ -18,21 +18,23 @@ spec:
     Master:
       count: 1
       resources:
-        cpus: 8
-        ramRatio: 4
+        cpus: 4
+        ramRatio: 3
+        shmSizeGB: 0
         accelerators: # optional
           gpu:
             count: 1
             type: gpu
-            product: nvidia-tesla-t4
+            product: NVIDIA-A100-SXM4-80GB-MIG-3g.40gb
     Worker:
-      count: 1
+      count: 2
       resources:
-        cpus: 8
+        cpus: 4
         ramRatio: 4
+        shmSizeGB: 0
         accelerators: # optional
           gpu:
             count: 1
             type: gpu
-            product: nvidia-tesla-t4
+            product: NVIDIA-A100-SXM4-80GB-MIG-3g.40gb
 
