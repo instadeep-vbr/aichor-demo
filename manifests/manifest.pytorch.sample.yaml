@@ -9,16 +9,16 @@ builder:
 spec:
   operator: pytorch
   image: image
-  command: "python3 -u main.py --operator=pytorch --sleep=300 --tb-write=True"
+  command: "python3 -u main.py --operator=pytorch --sleep=30 --tb-write=false"
 
   tensorboard:
-    enabled: true
+    enabled: false
 
   types:
     Master:
       count: 1
       resources:
-        cpus: 1
+        cpus: 3
         ramRatio: 2
         shmSizeGB: 0
         accelerators: # optional
@@ -29,12 +29,11 @@ spec:
     Worker:
       count: 1
       resources:
-        cpus: 1
+        cpus: 3
         ramRatio: 2
         shmSizeGB: 0
         accelerators: # optional
           gpu:
             count: 0
             type: gpu
-            product: nvidia-tesla-t4
-
+            product: T4
