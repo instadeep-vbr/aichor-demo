@@ -20,11 +20,11 @@ spec:
   types:
     Head:
       resources:
-        cpus: 3
-        ramRatio: 2
+        cpus: 2
+        ramRatio: 3
         accelerators: # optional
           gpu:
-            count: 1
+            count: 0
             type: gpu
             product: T4
     Workers:
