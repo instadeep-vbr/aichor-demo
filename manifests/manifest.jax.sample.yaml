@@ -20,9 +20,10 @@ spec:
       resources:
         cpus: 1
         ramRatio: 2
+        shmSizeGB: 0
         accelerators: # optional
           gpu:
-            count: 1
-            product: T4
+            count: 0
             type: gpu
+            product: nvidia-tesla-t4
 
