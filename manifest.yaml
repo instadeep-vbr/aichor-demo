@@ -20,8 +20,8 @@ spec:
   types:
     Head:
       resources:
-        cpus: 8
-        ramRatio: 1
+        cpus: 2
+        ramRatio: 3
 
     Workers:
       - name: cpu-workers
