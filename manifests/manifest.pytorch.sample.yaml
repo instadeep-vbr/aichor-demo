@@ -3,37 +3,39 @@ apiVersion: 0.2.2
 
 builder:
   image: image
-  dockerfile: ./build/Dockerfile
+  dockerfile: ./build/ray.Dockerfile
   context: .
 
 spec:
-  operator: pytorch
+  operator: kuberay
   image: image
-  command: "python3 -u main.py --operator=pytorch --sleep=30 --tb-write=false"
+  command: "python3 -u main.py --operator=kuberay --sleep=120 --tb-write=false"
+
+  debug:
+    jupyter: false
 
   tensorboard:
     enabled: false
 
   types:
-    Master:
-      count: 1
+    Head:
       resources:
         cpus: 3
         ramRatio: 2
-        shmSizeGB: 0
         accelerators: # optional
           gpu:
-            count: 0
-            type: gpu
-            product: nvidia-tesla-t4
-    Worker:
-      count: 1
-      resources:
-        cpus: 3
-        ramRatio: 2
-        shmSizeGB: 0
-        accelerators: # optional
-          gpu:
-            count: 0
+            count: 1
             type: gpu
             product: T4
+    Workers:
+      - name: cpu-workers
+        count: 1
+        resources:
+          cpus: 3
+          ramRatio: 2
+          shmSizeGB: 0
+          accelerators: # optional
+            gpu:
+              count: 1
+              type: gpu
+              product: T4
