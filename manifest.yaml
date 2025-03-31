@@ -20,7 +20,7 @@ spec:
   types:
     Head:
       resources:
-        cpus: 3
+        cpus: 8
         ramRatio: 2
 
     Workers:
