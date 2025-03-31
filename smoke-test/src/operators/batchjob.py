@@ -6,5 +6,5 @@ def batchjobop(tb_write: bool):
 
     print("job index: ", job_index)
 
-    if tb_write:
-        dummy_tb_write(f"From job_index {job_index}")
+#    if tb_write:
+#        dummy_tb_write(f"From job_index {job_index}")

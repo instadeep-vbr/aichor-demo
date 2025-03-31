@@ -8,5 +8,5 @@ def tfop(tb_write: bool):
     if tf_config_raw == None:
         print("tf_config is None because worker count = 1")
 
-    if tb_write:
-        dummy_tb_write(None)
+#    if tb_write:
+#        dummy_tb_write(None)

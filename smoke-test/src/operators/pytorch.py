@@ -9,5 +9,5 @@ def pytorchop(tb_write: bool):
     print("WORLD_SIZE: ", os.environ.get("WORLD_SIZE"))
     print("RANK: ", rank)
 
-    if tb_write:
-        dummy_tb_write(f"From rank {rank}")
+#    if tb_write:
+#        dummy_tb_write(f"From rank {rank}")

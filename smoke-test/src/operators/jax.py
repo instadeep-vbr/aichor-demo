@@ -8,5 +8,5 @@ def jaxop(tb_write: bool):
     print("num processes: ", os.environ.get("JAXOPERATOR_NUM_PROCESSES"))
     print("process id: ", p_id)
 
-    if tb_write:
-        dummy_tb_write(f"From p_id {p_id}")
+#    if tb_write:
+#        dummy_tb_write(f"From p_id {p_id}")

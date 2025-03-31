@@ -11,5 +11,5 @@ def xgboostop(tb_write: bool):
     print("WORKER_PORT: ", os.environ.get("WORKER_PORT"))
     print("WORKER_ADDRS: ", os.environ.get("WORKER_ADDRS"))
 
-    if tb_write:
-        dummy_tb_write(f"from rank {rank}")
+#    if tb_write:
+#        dummy_tb_write(f"from rank {rank}")

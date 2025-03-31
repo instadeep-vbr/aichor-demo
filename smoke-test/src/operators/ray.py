@@ -10,5 +10,5 @@ def rayop(tb_write: bool):
     nodes = ray.nodes()
     print("connected nodes: ", nodes)
 
-    if tb_write:
-        dummy_tb_write(None)
+#    if tb_write:
+#        dummy_tb_write(None)
