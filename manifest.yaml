@@ -23,7 +23,7 @@ spec:
         shmSizeGB: 0
         accelerators: # optional
           gpu:
-            count: 1
+            count: 0
             type: gpu
             product: t4
 
