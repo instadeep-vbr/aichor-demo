@@ -9,10 +9,12 @@ builder:
 spec:
   operator: jax
   image: image
-  command: "python3 -u main.py --operator=jax --sleep=120 --tb-write=True"
+  command: "python3 -u main.py --operator=jax --sleep=3600 --tb-write=True"
 
   tensorboard:
     enabled: true
+  
+  activeDeadlineSeconds: 3600
 
   types:
     worker:
@@ -23,7 +25,7 @@ spec:
         shmSizeGB: 0
         accelerators: # optional
           gpu:
-            count: 1
+            count: 0
             type: gpu
             product: nvidia-tesla-t4
 
