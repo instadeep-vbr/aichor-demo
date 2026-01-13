@@ -9,11 +9,11 @@ builder:
 spec:
   operator: jax
   image: image
-  command: "python3 -u main.py --operator=pytorch --sleep=360 --tb-write=True"
+  command: "python3 -u main.py --operator=pytorch --sleep=3600 --tb-write=True"
 
   tensorboard:
     enabled: true
-  
+  activeDeadlineSeconds: 3600 
   types:
     worker:
       count: 1
