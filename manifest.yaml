@@ -23,5 +23,5 @@ spec:
           gpu:
             count: 1
             type: gpu
-            product: nvidia-tesla-t4
+            product: t4
 
