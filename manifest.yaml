@@ -9,7 +9,8 @@ builder:
 spec:
   operator: jax
   image: image
-  command: "python3 -u main.py --operator=jax --sleep=180 --tb-write=True"
+  command: "python3 -u main.py --operator=jax --sleep=1600 --tb-write=True"
+  activeDeadlineSeconds: 1600
   tensorboard:
     enabled: true
   types:
