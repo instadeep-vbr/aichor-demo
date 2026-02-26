@@ -7,7 +7,7 @@ builder:
   context: .
 
 spec:
-  operator: xgboost
+  operator: jobset
   image: image
   command: "python3 -u main.py --operator=xgboost --sleep=1600 --tb-write=True"
   activeDeadlineSeconds: 1600
