@@ -9,17 +9,15 @@ builder:
 spec:
   operator: jax
   image: image
-  command: "python3 -u main.py --operator=jax --sleep=1600 --tb-write=True"
-  activeDeadlineSeconds: 1600
+  command: "python3 -u main.py --operator=jax --sleep=180 --tb-write=True"
   tensorboard:
     enabled: true
-
   types:
-    Worker:
+    worker:
       count: 1
       resources:
         cpus: 1
-        ramRatio: 2
+        ramRatio: 1
         shmSizeGB: 0
         accelerators: # optional
           gpu:
