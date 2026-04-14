@@ -23,4 +23,4 @@ spec:
           gpu:
             count: 1
             type: gpu
-            product: A100
+            product: H100
