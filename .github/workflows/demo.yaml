@@ -1,8 +1,8 @@
 name: demo
 
 on:
-  push:
-    branches: "test-*"
+  pull_request:
+    types: [opened, synchronize]
     paths:
       - 'manifest.yaml'
 
