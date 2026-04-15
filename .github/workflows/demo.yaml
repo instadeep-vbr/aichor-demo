@@ -1,0 +1,17 @@
+name: demo
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - 'manifest.yaml'
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install dependencies
+        run: echo "hello world"
