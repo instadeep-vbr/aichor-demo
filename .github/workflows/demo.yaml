@@ -2,7 +2,6 @@ name: demo
 
 on:
   push: 
-    branches: 'test-*'
     paths:
       - 'manifest.yaml'
 
