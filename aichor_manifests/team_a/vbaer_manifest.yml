@@ -16,7 +16,7 @@ spec:
     worker:
       count: 1
       resources:
-        cpus: 1
+        cpus: 2
         ramRatio: 1
         shmSizeGB: 0
         accelerators: # optional
