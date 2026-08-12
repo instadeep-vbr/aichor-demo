@@ -14,13 +14,13 @@ spec:
     enabled: false
   types:
     worker:
-      count: 0
+      count: 1
       resources:
         cpus: 1
         ramRatio: 1
         shmSizeGB: 0
         accelerators: # optional
           gpu:
-            count: 1
+            count: 0
             type: gpu
             product: nvidia-tesla-t4 
