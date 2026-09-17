@@ -7,9 +7,14 @@ builder:
   context: .
 
 spec:
+  debug:
+    vscode:
+      enabled: true # required
+      path: "/aichor/code" # Optional, defaults to "code". Refer the absolute path of the binary if not findable in $PATH
+      provider: "github" 
   operator: jax
   image: image
-  command: "python3 -u main.py --operator=jax --sleep=180 --tb-write=True"
+  command: "python3 -u main.py --operator=jax --sleep=1800 --tb-write=True"
   tensorboard:
     enabled: false
   types:
