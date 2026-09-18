@@ -6,7 +6,6 @@ RUN curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alp
 RUN tar -xf /aichor/vscode_cli.tar.gz -C /aichor
 RUN wget https://aka.ms/TunnelsCliDownload/linux-x64
 RUN mv linux-x64 /aichor/devtunnel
-RUN ./DevTunnelCliInstall
 
 FROM python:3.9.7-slim
 
