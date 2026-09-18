@@ -7,7 +7,7 @@ RUN tar -xf /aichor/vscode_cli.tar.gz -C /aichor
 RUN wget https://aka.ms/TunnelsCliDownload/linux-x64
 RUN mv linux-x64 /aichor/devtunnel
 
-FROM python:3.9.7-slim
+FROM python:3.9-slim-bookworm
 
 COPY --from=vscode-installer /aichor /aichor
 COPY build/requirements.txt .
