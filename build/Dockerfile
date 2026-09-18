@@ -4,8 +4,8 @@ RUN mkdir /aichor
 RUN apk add --no-cache bash
 RUN curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' --output /aichor/vscode_cli.tar.gz
 RUN tar -xf /aichor/vscode_cli.tar.gz -C /aichor
-RUN wget https://aka.ms/DevTunnelCliInstall
-RUN chmod +x DevTunnelCliInstall
+RUN wget https://aka.ms/TunnelsCliDownload/linux-x64
+RUN mv linux-x64-devtunnel /aichor/devtunnel
 RUN ./DevTunnelCliInstall
 
 FROM python:3.9.7-slim
