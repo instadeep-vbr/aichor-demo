@@ -11,7 +11,6 @@ FROM python:3.9.7-slim
 
 COPY --from=vscode-installer /aichor /aichor
 COPY build/requirements.txt .
-COPY --from=vscode-installer /bin/devtunnel /bin/devtunnel
 RUN pip install -r requirements.txt
 WORKDIR /app
 COPY ./src ./src
