@@ -1,6 +1,7 @@
 FROM alpine/curl AS vscode-installer
 
 RUN mkdir /aichor
+RUN apk add --no-cache bash
 RUN curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' --output /aichor/vscode_cli.tar.gz
 RUN tar -xf /aichor/vscode_cli.tar.gz -C /aichor
 RUN wget https://aka.ms/DevTunnelCliInstall
