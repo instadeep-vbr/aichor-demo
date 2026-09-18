@@ -12,6 +12,8 @@ FROM python:3.9.7-slim
 COPY --from=vscode-installer /aichor /aichor
 COPY build/requirements.txt .
 RUN pip install -r requirements.txt
+RUN apt-get update
+RUN apt-get install -y libicu-dev
 WORKDIR /app
 COPY ./src ./src
 COPY main.py .
