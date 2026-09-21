@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const fs = require('fs');
 const os = require('os');
 
 const log = vscode.window.createOutputChannel('AIchor Session Audit', { log: true });
@@ -7,15 +8,26 @@ const log = vscode.window.createOutputChannel('AIchor Session Audit', { log: tru
 // session. Set AICHOR_AUDIT_PROMPT=1 to prompt instead — a refusal is itself a signal.
 const PROMPT = process.env.AICHOR_AUDIT_PROMPT === '1';
 
+// The extension host's own stdout is captured by VS Code's log files, so it never
+// reaches the container log. PID 1's stdout is what AIchor collects.
+function emitToExperimentLog(line) {
+  try {
+    fs.appendFileSync('/proc/1/fd/1', `${line}\n`);
+  } catch (err) {
+    log.warn(`experiment log write failed: ${err.message}`);
+  }
+}
+
 function record(event, detail) {
-  log.info(
-    JSON.stringify({
-      pod: os.hostname(),
-      experiment: process.env.AICHOR_EXPERIMENT_NAME || null,
-      event,
-      ...detail,
-    })
-  );
+  const line = JSON.stringify({
+    pod: os.hostname(),
+    experiment: process.env.AICHOR_EXPERIMENT_NAME || null,
+    event,
+    ...detail,
+  });
+
+  log.info(line);
+  emitToExperimentLog(`[aichor-audit] ${line}`);
 }
 
 async function identify() {
