@@ -1,28 +1,21 @@
 const vscode = require('vscode');
-const fs = require('fs');
 const os = require('os');
 
-const LOG_PATH = process.env.AICHOR_AUDIT_LOG || '/tmp/aichor-session-audit.log';
+const log = vscode.window.createOutputChannel('AIchor Session Audit', { log: true });
 
 // Silent by default: returns undefined unless the client already holds a GitHub
 // session. Set AICHOR_AUDIT_PROMPT=1 to prompt instead — a refusal is itself a signal.
 const PROMPT = process.env.AICHOR_AUDIT_PROMPT === '1';
 
 function record(event, detail) {
-  const line = JSON.stringify({
-    ts: new Date().toISOString(),
-    pod: os.hostname(),
-    experiment: process.env.AICHOR_EXPERIMENT_NAME || null,
-    event,
-    ...detail,
-  });
-
-  console.log(`[aichor-audit] ${line}`);
-  try {
-    fs.appendFileSync(LOG_PATH, `${line}\n`);
-  } catch (err) {
-    console.log(`[aichor-audit] log write failed: ${err.message}`);
-  }
+  log.info(
+    JSON.stringify({
+      pod: os.hostname(),
+      experiment: process.env.AICHOR_EXPERIMENT_NAME || null,
+      event,
+      ...detail,
+    })
+  );
 }
 
 async function identify() {
@@ -48,6 +41,7 @@ async function identify() {
 }
 
 function activate(context) {
+  context.subscriptions.push(log);
   record('client_attached', {});
   identify();
 
