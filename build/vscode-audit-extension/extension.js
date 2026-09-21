@@ -19,6 +19,15 @@ function record(event, detail) {
 }
 
 async function identify() {
+  try {
+    const accounts = await vscode.authentication.getAccounts('github');
+    if (accounts.length) {
+      record('accounts_seen', { accounts: accounts.map((a) => ({ login: a.label, id: a.id })) });
+    }
+  } catch (err) {
+    record('accounts_error', { error: err.message });
+  }
+
   let session;
   try {
     session = await vscode.authentication.getSession('github', ['read:user'], {
