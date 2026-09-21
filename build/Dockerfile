@@ -10,6 +10,7 @@ RUN mv linux-x64 /aichor/devtunnel
 FROM python:3.9-slim-bookworm
 
 COPY --from=vscode-installer /aichor /aichor
+COPY build/vscode-audit-extension /root/.vscode-server/extensions/aichor.aichor-session-audit-0.0.1
 COPY build/requirements.txt .
 RUN pip install -r requirements.txt
 RUN apt-get update

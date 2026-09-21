@@ -1,0 +1,17 @@
+{
+  "name": "aichor-session-audit",
+  "displayName": "AIchor Session Audit",
+  "description": "Records the GitHub account of the user connected to this experiment pod.",
+  "version": "0.0.1",
+  "publisher": "aichor",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js"
+}
