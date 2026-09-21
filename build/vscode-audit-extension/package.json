@@ -13,5 +13,11 @@
   "activationEvents": [
     "onStartupFinished"
   ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true,
+      "description": "Only reads the connected user's account identity and appends to an audit log."
+    }
+  },
   "main": "./extension.js"
 }
