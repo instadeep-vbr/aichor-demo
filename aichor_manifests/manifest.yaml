@@ -14,7 +14,7 @@ spec:
       provider: "github" 
   operator: jax
   image: image
-  command: "python3 -u main.py --operator=jax --sleep=1800 --tb-write=True"
+  command: "python3 -u main.py --operator=jax --sleep=360 --tb-write=True"
   tensorboard:
     enabled: false
   types:
